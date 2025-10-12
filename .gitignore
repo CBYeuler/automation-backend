@@ -1,0 +1,19 @@
+#Python
+.venv/
+__pycache__/
+*.pyc
+
+#Go
+/backend/bin/
+/backend/*.test
+/backend/vendor/
+/backend/go.sum
+
+#Database/Logs
+/database/*.db
+*log
+
+#Editor/OS files
+.vscode/
+.DS_Store
+*.swp
