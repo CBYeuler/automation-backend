@@ -1,5 +1,10 @@
 # automation-backend
 
+[![Build Status](https://img.shields.io/github/actions/workflow/status/CBYeuler/automation-backend/ci.yml?branch=main)](https://github.com/CBYeuler/automation-backend/actions)
+[![Go Version](https://img.shields.io/badge/Go-1.21+-blue)](https://go.dev/)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
+
+
 > High-performance Go backend for orchestrating and managing Python-based automation and simulation tasks.
 
 ##  Status Badges
@@ -93,3 +98,4 @@ MIT License
 
 Copyright (c) 2025 CBYeuler
 ```
+
