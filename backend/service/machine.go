@@ -44,23 +44,29 @@ func (s *MachineServiceImpl) GetMachineByID(id uint) (models.Machine, error) {
 	return *machine, nil
 }
 
+// UpdateMachine handles updates, ensuring the ID is correct and exists.
 func (s *MachineServiceImpl) UpdateMachine(id uint, updatedMachine models.Machine) (models.Machine, error) {
-	if updatedMachine.ID != id {
-		return models.Machine{}, errors.New("ID mismatch")
+	//  Check if the machine exists (important for returning 404, not 500)
+
+	existingMachine, err := s.Repo.FindByID(id)
+	if err != nil {
+		// Assume gorm.ErrRecordNotFound translates here
+		return models.Machine{}, errors.New("machine not found")
 	}
 
-	_, err := s.Repo.FindByID(id)
-	if err != nil {
-		return models.Machine{}, err
-	}
+	// Enforce the ID from the path (URL parameter)
 
-	err = s.Repo.Update(&updatedMachine)
-	if err != nil {
-		return models.Machine{}, err
-	}
-	return updatedMachine, nil
+	updatedMachine.ID = id
+
+	//  Simple copy of fields for demonstration (for full safety, fetch and update field by field)
+	existingMachine.Name = updatedMachine.Name
+	existingMachine.Status = updatedMachine.Status
+	existingMachine.ConfigJSON = updatedMachine.ConfigJSON
+	// Note: LastSimulated and SimulatedRuns should be updated by the Simulator, not the API here
+
+	err = s.Repo.Update(existingMachine) // Use the existingMachine pointer after updating its fields
+	return *existingMachine, err
 }
-
 func (s *MachineServiceImpl) DeleteMachine(id uint) error {
 	return s.Repo.Delete(id)
 }
