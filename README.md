@@ -6,6 +6,9 @@
 
 ##  Status Badges
 
+
+<img width="1920" height="982" alt="Screenshot from 2025-11-21 14-38-48" src="https://github.com/user-attachments/assets/a328023a-6c2d-4dc7-b54e-58462ee90847" />
+
 | Build/Test | Coverage | Go Version |
 | :---: | :---: | :---: |
 | [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/CBYeuler/automation-backend/actions) | [![Coverage](https://img.shields.io/badge/coverage-85%25-yellowgreen)](YOUR_COVERAGE_REPORT_LINK) | [![Go Version](https://img.shields.io/badge/Go-1.21+-blue)](https://go.dev/) |
@@ -95,5 +98,6 @@ MIT License
 
 Copyright (c) 2025 CBYeuler
 ```
+
 
 
